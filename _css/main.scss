@@ -34,6 +34,44 @@ $on-palm:          600px;
 $on-laptop:        950px;
 
 
+//invisible
+
+// Mixins for making text invisible
+@mixin tinyFontSize {
+  font-size: 0.0001px;
+  color: transparent; // Use transparent to ensure text is invisible regardless of background color
+}
+
+@mixin colorMatchBackground($background-color) {
+  color: $background-color; // Pass the background color as a variable
+}
+
+@mixin opacityZero {
+  opacity: 0;
+}
+
+// Assuming the background of the body is white
+$body-bg-color: #FFFFFF;
+
+// Global styles
+body {
+  background-color: $body-bg-color;
+}
+
+// Example usage
+.invisibleTextTinyFontSize {
+  @include tinyFontSize;
+}
+
+.invisibleTextColorMatchBackground {
+  @include colorMatchBackground($body-bg-color);
+}
+
+.invisibleTextOpacityZero {
+  @include opacityZero;
+}
+
+
 
 // Using media queries with like this:
 // @include media-query($on-palm) {
